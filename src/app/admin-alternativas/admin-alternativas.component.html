@@ -1,0 +1,59 @@
+<div class="container mt-10">
+    <div class="card mb-3" style="width:95%; margin-top: 100px;" >
+        <div class="card-body">
+          <div class="d-flex bd-highlight mb-3">
+          <div class="mr-auto p-2 bd-highlight"><h1>Cadastrar alternativa</h1></div>
+                    <div class="p-2 bd-highlight">
+                      <button type="button" class="btn btn-info" ><fa-icon [icon]="faEdit" size = "lg"></fa-icon></button></div>
+                    <div class="p-2 bd-highlight">
+                      <button type="button" class="btn btn-warning" (click)="delete(questoesBanco.id)"><fa-icon [icon]="faTrash" size = "lg"></fa-icon></button>
+                    </div>
+                  </div>
+            <form (submit)="enviar()">
+            <h5><pre >{{ questoesBanco.descricao}}</pre></h5>
+                
+                <table class="table table-sm">
+                    <tbody >
+                      <tr *ngFor="let item of questoesBanco.alternativas">
+                        <td>{{item.descricaoAlternativa}}</td>
+                        <td *ngIf="item.tipo === 0; else elseBlock">Falso</td>
+                        <ng-template #elseBlock><td >Verdadeiro</td></ng-template>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                  <small>Selecione a checkbox quando for a alternativa correta! </small>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">
+                        <input type="checkbox" 
+                        aria-label="Checkbox for following text input"
+                        name = "tipo"
+                        [(ngModel)] = "tipo"
+                        >
+                      </div>
+                    </div>
+                    <input type="text" 
+                    aria-label="Text input with checkbox"
+                    id = "text"
+                    name = "descricao"
+                    class = "form-control "
+                    required
+                    [(ngModel)] = "alternativa">
+                  </div>
+                  
+                <button class="btn btn-primary" >
+                    <i class="fas fa-door-open"></i>
+                    Cadastrar
+                </button>
+                <button class="btn btn-danger ml-3" routerLink="/inicio">
+                  <i class="fas fa-door-open"></i>
+                  Voltar
+              </button>
+            </form>
+            
+        </div>
+      </div>
+</div>
+
+

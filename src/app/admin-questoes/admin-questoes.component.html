@@ -1,0 +1,33 @@
+
+
+  
+ 
+<div class="container mt-10">
+    <div class="card mb-3" style="width:95%; margin-top: 100px;" >
+        <div class="card-body">
+            <h1>Cadastrar Questão</h1>
+            <form (submit)="enviar()">
+                <div class="form-group">
+                    <label for = "descricao">Descrição:</label>
+                    <textarea type="text"
+                      id = "text"
+                      style="height:100px;"
+                      name = "descricao"
+                      class = "form-control descricao"
+                      [(ngModel)] = "descricao"></textarea>
+                </div>
+                
+                <button class="btn btn-primary" >
+                    <i class="fas fa-door-open"></i>
+                    Cadastrar
+                </button> 
+                <button class="btn btn-danger ml-3" routerLink="/inicio">
+                    <i class="fas fa-door-open"></i>
+                    Cancelar
+                </button>
+            </form>
+            
+        </div>
+      </div>
+</div>
+

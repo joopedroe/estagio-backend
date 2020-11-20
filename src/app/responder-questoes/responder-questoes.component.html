@@ -1,0 +1,17 @@
+<div  class="card shadow mb-4">
+    <div  class="card-header">
+        <h5  class="m-0 font-weight-bold text-primary">Questões de Lógica</h5>
+    </div>
+    <div  class="card-body">
+        <h5 ><pre>{{ questoesBanco.descricao}}</pre></h5><br >
+            <div class="custom-control custom-radio" *ngFor="let item of questoesBanco.alternativas">
+                <input type="radio" id="customRadio{{item.id}}" name="customRadio" class="custom-control-input" (change)="seleciona(item.tipo)">
+                <label class="custom-control-label" for="customRadio{{item.id}}">{{item.descricaoAlternativa}}</label>
+              </div>
+
+        <div  class="row">
+            <div class="col-md-2 offset-md-10"><button (click)="enviaResposta()" class="btn btn-success" id="res" 
+                    ><span >Responder</span></button></div>
+        </div>
+    </div>
+</div>
